@@ -1,0 +1,7 @@
+webClient/target/
+webClient/src/node_modules/lodash/fp/defaults.js
+webClient/src/node_modules/lodash/_unicodeWords.js
+webClient/src/node_modules/
+server/target/
+*.iml
+.idea/
