@@ -5,3 +5,5 @@ webClient/src/node_modules/
 server/target/
 *.iml
 .idea/
+.extract/
+webClient/src/npm-debug.log.3900662993

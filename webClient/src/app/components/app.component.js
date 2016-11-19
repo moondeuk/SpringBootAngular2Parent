@@ -12,25 +12,24 @@ var core_1 = require('@angular/core');
 var book_service_1 = require('./../services/book.service');
 var http_1 = require('@angular/http');
 var AppComponent = (function () {
-    function AppComponent(_davisService) {
-        this._davisService = _davisService;
+    function AppComponent(_bookService) {
+        this._bookService = _bookService;
         this.title = 'Book List';
     }
-    AppComponent.prototype.getDavisCups = function () {
+    AppComponent.prototype.getBooks = function () {
         var _this = this;
-        /* this._davisService.getDavisCups().then(davis => this.davisCups = davis)*/
-        this._davisService.getDavisCups().subscribe(function (davis) { return _this.davisCups = davis; }, function (error) { return _this.errorMessage = error; });
+        this._bookService.getBooks().subscribe(function (book) { return _this.books = book; }, function (error) { return _this.errorMessage = error; });
     };
     AppComponent.prototype.ngOnInit = function () {
-        this.getDavisCups();
+        this.getBooks();
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             template: "\n      <h1>{{title}}</h1>\n      <h2>Book List</h2>\n      <ul>\n          <li *ngFor=\"let book of books\">\n              {{book.title}}, {{book.author}}, {{book.isbn}}, {{book.pulishYear}}\n         </li>\n      </ul>\n    ",
-            providers: [http_1.HttpModule, book_service_1.DavisCupService]
+            providers: [http_1.HttpModule, book_service_1.BookService]
         }), 
-        __metadata('design:paramtypes', [book_service_1.DavisCupService])
+        __metadata('design:paramtypes', [book_service_1.BookService])
     ], AppComponent);
     return AppComponent;
 }());

@@ -12,27 +12,27 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var Observable_1 = require('rxjs/Observable');
 require('rxjs/Rx');
-var DavisCupService = (function () {
-    function DavisCupService(http) {
+var BookService = (function () {
+    function BookService(http) {
         this.http = http;
-        this._davisUrl = 'http://localhost:8080/result_list'; // URL to web api
+        this._bookServiceUrl = 'http://localhost:8080/result_list'; // URL to web api
     }
-    DavisCupService.prototype.getBooks = function () {
-        return this.http.get(this._davisUrl)
+    BookService.prototype.getBooks = function () {
+        return this.http.get(this._bookServiceUrl)
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
-    DavisCupService.prototype.handleError = function (error) {
+    BookService.prototype.handleError = function (error) {
         // in a real world app, we may send the error to some remote logging infrastructure
         // instead of just logging it to the console
         console.log(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
     };
-    DavisCupService = __decorate([
+    BookService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], DavisCupService);
-    return DavisCupService;
+    ], BookService);
+    return BookService;
 }());
-exports.DavisCupService = DavisCupService;
+exports.BookService = BookService;
 //# sourceMappingURL=book.service.js.map

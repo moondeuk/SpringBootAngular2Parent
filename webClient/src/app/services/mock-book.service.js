@@ -14,7 +14,7 @@ var MockDavisCupService = (function () {
     function MockDavisCupService() {
     }
     MockDavisCupService.prototype.getBooks = function () {
-        return Promise.resolve(mock_book_1.Book);
+        return Promise.resolve(mock_book_1.BOOKS);
     };
     MockDavisCupService = __decorate([
         core_1.Injectable(), 

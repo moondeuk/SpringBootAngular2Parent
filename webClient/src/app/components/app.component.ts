@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DavisCupService} from './../services/book.service';
+import {BookService} from './../services/book.service';
 import {Book} from '../model/book';
 import {HttpModule} from '@angular/http';
 
@@ -15,28 +15,26 @@ import {HttpModule} from '@angular/http';
          </li>
       </ul>
     `,
-        providers: [HttpModule, DavisCupService]
+        providers: [ HttpModule, BookService ]
     })
-
 
 export class AppComponent implements OnInit{
 
-    constructor(private _davisService : DavisCupService){}
+    constructor(private _bookService : BookService){}
 
     errorMessage: string;
-    davisCups : Book[];
-    public title = 'Book List';
+    books : Book[];
+    public title = 'SpringBoot, Angular2, Starter Web';
 
-    getDavisCups(){
+    getBooks(){
 
-       /* this._davisService.getDavisCups().then(davis => this.davisCups = davis)*/
-        this._davisService.getDavisCups().subscribe(
-            davis => this.davisCups = davis,
+        this._bookService.getBooks().subscribe(
+            book => this.books = book,
             error =>  this.errorMessage = <any>error);
     }
 
     ngOnInit(){
-        this.getDavisCups();
+        this.getBooks();
     }
 
 } // export -> create a module

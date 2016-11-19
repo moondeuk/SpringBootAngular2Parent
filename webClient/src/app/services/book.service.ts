@@ -5,13 +5,13 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 @Injectable()
-export class DavisCupService {
+export class BookService {
 
     constructor (private http: Http) {}
 
-    private _davisUrl = 'http://localhost:8080/result_list';  // URL to web api
+    private _bookServiceUrl = 'http://localhost:8080/result_list';  // URL to web api
     getBooks() {
-        return this.http.get(this._davisUrl)
+        return this.http.get(this._bookServiceUrl)
             .map(res => <Book[]> res.json())
             .catch(this.handleError);
     }
